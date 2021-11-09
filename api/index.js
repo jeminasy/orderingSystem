@@ -1,19 +1,16 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+// const dotenv = require('dotenv');
 const cors = require('cors');
 
 app.use(cors());
 app.use(express.json());
 
-dotenv.config();
 mongoose
-    .connect(process.env.MONGO_URL)
+    .connect('mongodb://localhost/cakesoverflowers')
     .then(() => console.log('Connected to MongoDB!'))
-    .catch((err) => {
-        console.log('Failed to connect database :c', err)
-    });
+    .catch(err => console.error('Could not connect to MongoDB :c', err));
 
 const products = require('./routes/products');
 const bases = require('./routes/bases');
