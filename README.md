@@ -1,5 +1,9 @@
 RUN BACKEND APPLICATION
-#node app.js
+
+node app.js
+
+
 
 RUN REACT APP
-#npm start
+
+npm start
